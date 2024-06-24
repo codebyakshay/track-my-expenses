@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  color: white;
+}
+
+.addCatagories {
+  border-radius: 10px;
+}
+
+ul li {
+  text-decoration: none;
+  border: 1px white solid;
+}
+
+form,
+label,
+input,
+select button {
+  display: block;
+  margin: 10px;
+}
+
+ul {
+  margin: 10px;
+  padding: 10px;
+  text-decoration: none;
+  list-style: none;
+}
+
+ul li {
+  margin: 10px;
+  padding: 5px;
+  display: block;
+  height: 100px;
+  width: 40vw;
+}
+
+.sortBy {
+  margin: 10px;
+  padding: 10px;
+  text-decoration: none;
+  list-style: none;
+}
+
+.totalDetails {
+  margin: 10px;
+  padding: 10px;
+  text-decoration: none;
+  list-style: none;
+}
