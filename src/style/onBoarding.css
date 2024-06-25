@@ -1,0 +1,130 @@
+/* Reset and global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Onboarding wrapper */
+.onboarding-wrapper {
+  background: linear-gradient(to right, #375f5c, #2e2f2c, #2b2a33, #1b1b1f);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Light theme onboarding container */
+.onboarding-container-light {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 20px;
+  width: 80%;
+  max-width: 500px;
+  color: black;
+}
+
+/* Dark theme onboarding container */
+.onboarding-container-dark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  padding: 20px;
+  width: 80%;
+  max-width: 500px;
+  color: white;
+}
+
+.onboarding-container-light h1,
+.onboarding-container-dark h1 {
+  margin-bottom: 20px;
+}
+
+.onboarding-container-light label,
+.onboarding-container-light select,
+.onboarding-container-light button,
+.onboarding-container-dark label,
+.onboarding-container-dark select,
+.onboarding-container-dark button {
+  margin: 10px 0;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+}
+
+.onboarding-container-light label,
+.onboarding-container-dark label {
+  align-self: flex-start;
+  font-weight: bold;
+}
+
+.onboarding-container-light select,
+.onboarding-container-dark select {
+  background-color: #333;
+  color: white;
+  border: none;
+  width: 100%;
+}
+
+.onboarding-container-light button,
+.onboarding-container-dark button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.onboarding-container-light button:hover,
+.onboarding-container-dark button:hover {
+  background-color: #45a049;
+}
+
+/* Responsive styles for light theme */
+@media (max-width: 768px) {
+  .onboarding-container-light {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .onboarding-container-light {
+    padding: 10px;
+  }
+
+  .onboarding-container-light select,
+  .onboarding-container-light button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+  }
+}
+
+/* Responsive styles for dark theme */
+@media (max-width: 768px) {
+  .onboarding-container-dark {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .onboarding-container-dark {
+    padding: 10px;
+  }
+
+  .onboarding-container-dark select,
+  .onboarding-container-dark button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+  }
+}

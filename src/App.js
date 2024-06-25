@@ -1,11 +1,13 @@
 import { useState } from "react";
-import AddCatagories from "./AddCatagories";
 import { MyExpenses } from "./MyExpenseArr";
-import { ExpenseList } from "./ExpenseList";
-import { AddExpenses } from "./AddExpenses";
-import { Button } from "./Button";
-import TotalExpenses from "./TotalExpenses";
 import useToggle from "./useToggle";
+import { v4 as uuidv4 } from "uuid";
+import MainComponent from "./MainComponent";
+import "./style/addCategories.css";
+import "./style/onBoarding.css";
+import "./style/AddExpenses.css";
+import "./style/show-list.css";
+import "./style/total-expenses.css";
 
 // Function to save expenses to Local Storage
 const saveExpensesToLocalStorage = (expenses) => {
@@ -23,8 +25,8 @@ const loadExpensesFromLocalStorage = () => {
 export default function App() {
   // Form States
   const [myExpenses, setMyExpenses] = useState(loadExpensesFromLocalStorage());
-  const [expense, setExpense] = useState(0); // Adding expenses
-  const [salary, setSalary] = useState(0);
+  const [expense, setExpense] = useState(); // Adding expenses
+  const [salary, setSalary] = useState();
   const [selectedCategories, setSelectedCategories] = useState("0");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState(""); // New date state
@@ -47,6 +49,15 @@ export default function App() {
     "Gifts/Donations",
   ]);
 
+  //OnBoarding States //
+  const [selectedCurrency, setSelectedCurrency] = useState("INR");
+  const [selectedTheme, setSelectedTheme] = useState("dark");
+  const [selectedTrackerMode, setSelectedTrackerMode] = useState("daily");
+  const [toggleOnBoard, setToggleOnBoard] = useState(true);
+
+  //toggle main
+  const [showMainComponent, setShowMainComponent] = useState(false);
+
   const {
     showCategories,
     visible,
@@ -60,6 +71,16 @@ export default function App() {
     setShowTotalExpense,
     setVisible,
   } = useToggle();
+
+  const currencySymbols = {
+    USD: "$",
+    EUR: "€",
+    GBP: "£",
+    JPY: "¥",
+    INR: "₹",
+  };
+
+  const currencySymbol = currencySymbols[selectedCurrency];
 
   const handleOnChange = (e) => {
     if (!e.target.value) return;
@@ -79,7 +100,7 @@ export default function App() {
     )
       return;
 
-    let id = crypto.randomUUID();
+    let id = uuidv4(); // Use uuidv4() to generate a UUID
     const newEntry = {
       id,
       category: categories[selectedCategories],
@@ -132,54 +153,65 @@ export default function App() {
     saveExpensesToLocalStorage(updatedExpenses); // Save to local storage
   };
 
-  const totalExpenses = myExpenses.reduce((acc, item) => acc + item.amount, 0);
-  const totalSalary = myExpenses.reduce((acc, item) => acc + item.salary, 0);
+  const handleEditExpense = (id, updatedExpense) => {
+    const updatedExpenses = myExpenses.map((expense) =>
+      expense.id === id ? { ...expense, ...updatedExpense } : expense
+    );
+    setMyExpenses(updatedExpenses);
+    saveExpensesToLocalStorage(updatedExpenses); // Save to local storage
+  };
+  const totalExpenses = myExpenses.reduce(
+    (acc, item) => acc + Number(item.amount),
+    0
+  );
+  const totalSalary = myExpenses.reduce(
+    (acc, item) => acc + Number(item.salary),
+    0
+  );
 
   return (
-    <div>
-      <Button onClickHandler={handleShowCategories}>Categories</Button>
-      <Button onClickHandler={handleAddExpenses}>Expenses</Button>
-      <Button onClickHandler={onClickHandler}>Tables</Button>
-      <Button onClickHandler={handleShowTotal}>Total</Button>
-
-      {visible && (
-        <ExpenseList
-          list={myExpenses}
-          sortBy={sortBy}
-          setSortBy={setSortBy}
-          handleSortBy={handleSortBy}
-          handleRemoveExpense={handleRemoveExpense}
-        />
-      )}
-
-      {showAddExpenses && (
-        <AddExpenses
-          expense={expense}
-          setExpense={setExpense}
-          categories={categories}
-          salary={salary}
-          setSalary={setSalary}
-          handleOnChange={handleOnChange}
-          selectedCategories={selectedCategories}
-          SetSelectedCategories={setSelectedCategories}
-          handleOnSubmitExpenses={handleOnSubmitExpenses}
-          description={description}
-          setDescription={setDescription}
-          date={date} // Pass the date state
-          setDate={setDate} // Pass the setDate function
-        />
-      )}
-
-      {showCategories && (
-        <AddCatagories categories={categories} setCatagories={setCatagories} />
-      )}
-
-      {showTotalExpense && (
-        <TotalExpenses
-          totalExpenses={totalExpenses}
-          totalSalary={totalSalary}
-        />
-      )}
-    </div>
+    <MainComponent
+      toggleOnBoard={toggleOnBoard}
+      selectedCurrency={selectedCurrency}
+      setSelectedCurrency={setSelectedCurrency}
+      selectedTheme={selectedTheme}
+      setSelectedTheme={setSelectedTheme}
+      selectedTrackerMode={selectedTrackerMode}
+      setSelectedTrackerMode={setSelectedTrackerMode}
+      setShowMainComponent={setShowMainComponent}
+      setToggleOnBoard={setToggleOnBoard}
+      showMainComponent={showMainComponent}
+      handleShowCategories={handleShowCategories}
+      handleAddExpenses={handleAddExpenses}
+      onClickHandler={onClickHandler}
+      handleShowTotal={handleShowTotal}
+      visible={visible}
+      salary={salary}
+      myExpenses={myExpenses}
+      sortBy={sortBy}
+      setSortBy={setSortBy}
+      handleSortBy={handleSortBy}
+      handleRemoveExpense={handleRemoveExpense}
+      handleEditExpense={handleEditExpense}
+      currencySymbol={currencySymbol}
+      showAddExpenses={showAddExpenses}
+      expense={expense}
+      setExpense={setExpense}
+      setSalary={setSalary}
+      handleOnChange={handleOnChange}
+      selectedCategories={selectedCategories}
+      setSelectedCategories={setSelectedCategories}
+      handleOnSubmitExpenses={handleOnSubmitExpenses}
+      description={description}
+      setDescription={setDescription}
+      date={date}
+      setDate={setDate}
+      showCategories={showCategories}
+      categories={categories}
+      setCatagories={setCatagories}
+      showTotalExpense={showTotalExpense}
+      totalExpenses={totalExpenses}
+      totalSalary={totalSalary}
+    />
   );
 }

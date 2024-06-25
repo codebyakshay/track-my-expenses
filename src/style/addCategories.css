@@ -1,0 +1,155 @@
+.addCategories-light {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.692);
+  border-radius: 15px;
+  padding: 20px;
+  width: 80%;
+  max-width: 500px;
+  color: black;
+  margin: 20px auto; /* Center the container */
+}
+
+.addCategories-dark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  padding: 20px;
+  width: 80%;
+  max-width: 500px;
+  color: dark;
+  margin: 20px auto; /* Center the container */
+}
+
+.addCategories-light form {
+  width: 100%;
+}
+
+.addCategories-dark h1 {
+  margin-bottom: 20px;
+}
+
+.addCategories-light form {
+  width: 100%;
+}
+
+.addCategories-dark h1 {
+  margin-bottom: 20px;
+}
+
+.addCategories-light label,
+.addCategories-light select,
+.addCategories-light button,
+.addCategories-light input {
+  margin: 10px 0;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.addCategories-dark label,
+.addCategories-dark select,
+.addCategories-dark button,
+.addCategories-dark input {
+  margin: 10px 0;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.addCategories-light label {
+  align-self: flex-start;
+  font-weight: bold;
+}
+
+.addCategories-dark label {
+  align-self: flex-start;
+  font-weight: bold;
+}
+
+.addCategories-light select,
+.addCategories-light input {
+  background-color: #333;
+  color: white;
+  border: none;
+}
+
+.addCategories-dark select,
+.addCategories-dark input {
+  background-color: #666666;
+  color: white;
+  border: none;
+}
+
+.addCategories-dark button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.addCategories-light button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.addCategories-light button:hover {
+  background-color: #45a049;
+}
+
+.addCategories-dark button:hover {
+  background-color: #45a049;
+}
+
+/* Responsive styles // light mode  */
+
+@media (max-width: 768px) {
+  .addCategories-light {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .addCategories-light {
+    padding: 10px;
+  }
+
+  .addCategories-light select,
+  .addCategories-light button,
+  .addCategories-light input {
+    padding: 15px;
+    font-size: 18px;
+  }
+}
+
+/* Responsive styles // light mode  */
+
+@media (max-width: 768px) {
+  .addCategories-dark {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .addCategories-dark {
+    padding: 10px;
+  }
+
+  .addCategories-dark select,
+  .addCategories-dark button,
+  .addCategories-dark input {
+    padding: 15px;
+    font-size: 18px;
+  }
+}

@@ -7,10 +7,16 @@ export const ExpenseList = ({
   sortBy,
   handleSortBy,
   handleRemoveExpense,
+  handleEditExpense,
+  currencySymbol,
+  selectedTheme,
 }) => {
   return (
-    <>
-      {" "}
+    <div
+      className={
+        selectedTheme === "dark" ? "show-list-light" : "show-list-dark"
+      }
+    >
       <ul>
         <h2>Daily expenditure</h2>
         {list.map((item) => (
@@ -18,11 +24,14 @@ export const ExpenseList = ({
             description={item.description}
             category={item.category}
             amount={item.amount}
+            salary={item.salary}
             date={item.date}
             id={item.id}
             key={item.id} // Use a unique identifier for the key
             totalExpenses={totalExpenses}
             handleRemoveExpense={handleRemoveExpense}
+            handleEditExpense={handleEditExpense}
+            currencySymbol={currencySymbol}
           />
         ))}
       </ul>
@@ -36,6 +45,6 @@ export const ExpenseList = ({
           <option value="dateDesc">Date (Newest to Oldest)</option>
         </select>
       </div>
-    </>
+    </div>
   );
 };

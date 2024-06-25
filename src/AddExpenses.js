@@ -12,13 +12,18 @@ export const AddExpenses = ({
   setDescription,
   date, // Receive the date state
   setDate, // Receive the setDate function
+  selectedTheme,
 }) => {
   return (
-    <>
+    <div
+      className={
+        selectedTheme === "dark" ? "add-expenses-light" : "add-expenses-dark"
+      }
+    >
       <form onSubmit={handleOnSubmitExpenses}>
         <label>Enter Your Earning of the day: 💲</label>
         <input
-          type="text"
+          type="number"
           value={salary}
           onChange={(e) => setSalary(e.target.value)}
         />
@@ -57,6 +62,6 @@ export const AddExpenses = ({
 
         <button>Add expenses</button>
       </form>
-    </>
+    </div>
   );
 };

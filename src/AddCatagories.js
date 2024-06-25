@@ -1,6 +1,10 @@
 import { useState } from "react";
 
-const AddCategories = ({ categories, setCatagories }) => {
+export default function AddCategories({
+  categories,
+  setCatagories,
+  selectedTheme,
+}) {
   const [newCategory, setNewCategory] = useState("");
 
   function handleAddCategories(e) {
@@ -12,7 +16,11 @@ const AddCategories = ({ categories, setCatagories }) => {
   }
 
   return (
-    <div className="addCategories">
+    <div
+      className={
+        selectedTheme === "dark" ? "addCategories-light" : "addCategories-dark"
+      }
+    >
       <form onSubmit={handleAddCategories}>
         <label>Enter Your Category Name</label>
         <input
@@ -34,6 +42,4 @@ const AddCategories = ({ categories, setCatagories }) => {
       </form>
     </div>
   );
-};
-
-export default AddCategories;
+}

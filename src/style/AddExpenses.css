@@ -1,0 +1,162 @@
+/* Reset and global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Light theme styles */
+.add-expenses-light {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+  padding: 20px;
+  width: 80%;
+  max-width: 500px;
+  color: black;
+  margin: 20px auto; /* Center the container */
+}
+
+.add-expenses-light form {
+  width: 100%;
+}
+
+.add-expenses-light h1 {
+  margin-bottom: 20px;
+}
+
+.add-expenses-light label,
+.add-expenses-light select,
+.add-expenses-light button,
+.add-expenses-light input {
+  margin: 10px 0;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.add-expenses-light label {
+  align-self: flex-start;
+  font-weight: bold;
+}
+
+.add-expenses-light select,
+.add-expenses-light input {
+  background-color: #333;
+  color: white;
+  border: none;
+}
+
+.add-expenses-light button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.add-expenses-light button:hover {
+  background-color: #45a049;
+}
+
+/* Dark theme styles */
+.add-expenses-dark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  padding: 20px;
+  width: 80%;
+  max-width: 500px;
+  color: white;
+  margin: 20px auto; /* Center the container */
+}
+
+.add-expenses-dark form {
+  width: 100%;
+}
+
+.add-expenses-dark h1 {
+  margin-bottom: 20px;
+}
+
+.add-expenses-dark label,
+.add-expenses-dark select,
+.add-expenses-dark button,
+.add-expenses-dark input {
+  margin: 10px 0;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.add-expenses-dark label {
+  align-self: flex-start;
+  font-weight: bold;
+}
+
+.add-expenses-dark select,
+.add-expenses-dark input {
+  background-color: #666666;
+  color: white;
+  border: none;
+}
+
+.add-expenses-dark button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.add-expenses-dark button:hover {
+  background-color: #45a049;
+}
+
+/* Responsive styles // light mode */
+@media (max-width: 768px) {
+  .add-expenses-light {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .add-expenses-light {
+    padding: 10px;
+  }
+
+  .add-expenses-light select,
+  .add-expenses-light button,
+  .add-expenses-light input {
+    padding: 15px;
+    font-size: 18px;
+  }
+}
+
+/* Responsive styles // dark mode */
+@media (max-width: 768px) {
+  .add-expenses-dark {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .add-expenses-dark {
+    padding: 10px;
+  }
+
+  .add-expenses-dark select,
+  .add-expenses-dark button,
+  .add-expenses-dark input {
+    padding: 15px;
+    font-size: 18px;
+  }
+}

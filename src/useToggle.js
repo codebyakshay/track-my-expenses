@@ -39,6 +39,7 @@ const useToggle = () => {
     visible,
     showAddExpenses,
     showTotalExpense,
+
     handleShowTotal,
     handleAddExpenses,
     onClickHandler,
